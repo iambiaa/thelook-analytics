@@ -1,5 +1,5 @@
 -- =====================================================
--- VIEW: vw_pagina1_receita
+-- VIEW: vw_receita
 -- Descrição: Receita agregada por cliente, mês, país,
 --            canal de aquisição e status do pedido
 -- Dataset: bigquery-public-data.thelook_ecommerce
