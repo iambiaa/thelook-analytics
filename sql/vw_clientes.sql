@@ -3,7 +3,7 @@
 -- Descrição: Dimensão de clientes — 1 linha por cliente
 --            com perfil demográfico e canal de aquisição
 -- Dataset: bigquery-public-data.thelook_ecommerce
--- Autor: [seu nome]
+-- Autor: [Bianca]
 -- =====================================================
 
 SELECT
