@@ -3,7 +3,7 @@
 -- Descrição: Receita agregada por cliente, mês, país,
 --            canal de aquisição e status do pedido
 -- Dataset: bigquery-public-data.thelook_ecommerce
--- Autor: [seu nome]
+-- Autor: [Bianca]
 -- =====================================================
 
 SELECT
