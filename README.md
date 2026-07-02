@@ -25,10 +25,9 @@ thelook-analytics/
 ├── README.md
 │
 └── sql/
-    ├── vw_vendas.sql             # Tabela fato — itens de pedido
-    ├── vw_pagina1_receita.sql    # Receita agregada por cliente e mês
-    ├── vw_pagina2_produtos.sql   # Margem e devolução por produto
-    └── vw_rfm.sql                # Segmentação RFM de clientes
+    ├── vw_clientes.sql    # Dimensão de clientes — perfil demográfico e canal
+    ├── vw_vendas.sql      # Tabela fato — itens de pedido com produto e status
+    └── vw_rfm.sql         # Segmentação RFM de clientes
 ```
 
 ---
@@ -75,29 +74,22 @@ Tabela Calendário (1)
 
 ## 🧠 Queries SQL
 
+### vw_clientes
+Dimensão de clientes com 1 linha por usuário. Inclui perfil demográfico (país, cidade, faixa etária, gênero) e canal de aquisição traduzidos para português.
+
+**Skills demonstradas:** `CASE WHEN` · `INITCAP` · `CONCAT` · tradução de categorias
+
+---
+
 ### vw_vendas
-Tabela fato central com 1 linha por item vendido. Inclui dados de produto (categoria, marca, custo), pedido (status, datas) e valor de venda.
+Tabela fato central com 1 linha por item vendido. Inclui dados de produto (categoria traduzida, marca, custo), pedido (status traduzido, datas) e valor de venda. Conecta com `vw_clientes` pelo `id_cliente` e com `vw_rfm` via `vw_clientes`.
 
-**Skills demonstradas:** `LEFT JOIN` múltiplo · `CASE WHEN` · `COALESCE` · `CAST` · `INITCAP` · tradução de categorias
-
----
-
-### vw_pagina1_receita
-Receita agregada por cliente, mês, país, canal de aquisição e status. Base para os visuais de tendência e distribuição geográfica.
-
-**Skills demonstradas:** `JOIN` múltiplo · `CASE WHEN` · `DATE_TRUNC` · `GROUP BY` · `SAFE_DIVIDE` · `COUNT DISTINCT`
-
----
-
-### vw_pagina2_produtos
-Métricas de produto agregadas por `product_id` — receita, custo, margem e taxa de devolução. A taxa de devolução é calculada via média de flag binária para evitar distorção na granularidade.
-
-**Skills demonstradas:** `JOIN` · `CASE WHEN` · `AVG` de flag binária · `COUNTIF` · `CAST` · `INITCAP`
+**Skills demonstradas:** `LEFT JOIN` múltiplo · `CASE WHEN` · `COALESCE` · `CAST` · `INITCAP` · tradução de 26 categorias
 
 ---
 
 ### vw_rfm
-Segmentação RFM completa usando 3 CTEs encadeadas e window functions. Classifica cada cliente em Campeão, Leal, Promissor, Em risco, Perdido ou Precisa atenção.
+Segmentação RFM completa usando 3 CTEs encadeadas e window functions. Classifica cada cliente em Campeão, Leal, Promissor, Em risco, Perdido ou Precisa atenção com base em Recência, Frequência e Valor Monetário.
 
 **Skills demonstradas:** `CTEs encadeadas` · `NTILE(5) OVER()` · `DATE_DIFF` · `COUNT DISTINCT` · `CASE WHEN` · `ROUND` · `CAST`
 
@@ -141,7 +133,5 @@ Segmentação RFM completa usando 3 CTEs encadeadas e window functions. Classifi
 
 ---
 
-## 👩‍💻 Autora
-
 Projeto desenvolvido como parte do portfólio de entrada na área de dados.  
-Desenvolvido com auxílio de análise exploratória no BigQuery e visualização no Power BI.
+Desenvolvido com análise exploratória no BigQuery e visualização no Power BI.
