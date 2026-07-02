@@ -5,7 +5,7 @@
 --            usando NTILE(5) e CTEs encadeadas
 -- Dataset: bigquery-public-data.thelook_ecommerce
 -- Filtro: apenas pedidos completos sem devolução
--- Autor: [seu nome]
+-- Autor: [Bianca]
 -- =====================================================
 
 WITH
