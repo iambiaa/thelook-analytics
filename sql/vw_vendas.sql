@@ -2,7 +2,7 @@
 -- VIEW: vw_vendas
 -- Descrição: Tabela fato central — 1 linha por item vendido
 -- Dataset: bigquery-public-data.thelook_ecommerce
--- Autor: [Bianca Motta]
+-- Autor: [Bianca]
 -- =====================================================
 
 SELECT
