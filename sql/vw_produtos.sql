@@ -1,12 +1,12 @@
 -- =====================================================
--- VIEW: vw_pagina2_produtos
+-- VIEW: vw_produtos
 -- Descrição: Receita, custo, margem e taxa de devolução
 --            agregados por produto e categoria
 -- Dataset: bigquery-public-data.thelook_ecommerce
 -- Nota: margem calculada sobre todos os pedidos (sem
 --       filtro de status) — representa o valor bruto
 --       por produto
--- Autor: [seu nome]
+-- Autor: [Bianca]
 -- =====================================================
 
 SELECT
